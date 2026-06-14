@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sejjtech Services | Smart IT Solutions, Simplified</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --secondary-color: #00c9ff;
+      --accent-neon: #00ff9d;
+      --dark-bg: #020617;
+      --dark-bg-soft: #0b1120;
+      --light-bg: #f8fafc;
+      --text-light: #f9fafb;
+      --text-dark: #111827;
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: #ffffff;
+      color: var(--text-dark);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Navbar */
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary-color) !important;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.9)),
+        url("https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero p.lead {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    .hero .btn-primary {
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      border: none;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      border-radius: 999px;
+      box-shadow: 0 0 20px rgba(0, 201, 255, 0.5);
+    }
+
+    .hero .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .hero .btn-outline-light {
+      border-radius: 999px;
+      border-width: 2px;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    /* About */
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .counter-box {
+      text-align: center;
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .counter {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .about-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.4);
+    }
+
+    /* Services */
+    .service-card {
+      border: none;
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff, #e0f2fe);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-neon), transparent);
+      top: -40px;
+      right: -40px;
+      opacity: 0.3;
+    }
+
+    .service-card i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
+    }
+
+    /* Portfolio */
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(13, 110, 253, 0.9),
+        rgba(0, 201, 255, 0.9)
+      );
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      padding: 20px;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      border-radius: 20px;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      height: 100%;
+    }
+
+    .testimonial-card i {
+      color: #fbbf24;
+    }
+
+    .avatar-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #ffffff;
+      margin-right: 12px;
+      font-size: 0.9rem;
+    }
+
+    .avatar-blue { background: #2563eb; }
+    .avatar-green { background: #16a34a; }
+    .avatar-purple { background: #7c3aed; }
+    .avatar-orange { background: #ea580c; }
+    .avatar-pink { background: #db2777; }
+
+    /* FAQ */
+    .faq-item {
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    /* Pricing */
+    .pricing-card {
+      border-radius: 20px;
+      padding: 30px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: var(--text-light);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-neon), transparent);
+      top: -60px;
+      left: -40px;
+      opacity: 0.4;
+    }
+
+    .pricing-card h4 {
+      font-weight: 600;
+    }
+
+    /* Tools */
+    .tool-badge {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      margin: 4px;
+      display: inline-block;
+    }
+
+    /* Contact */
+    .contact-info p {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info i {
+      color: var(--primary-color);
+      margin-right: 8px;
+    }
+
+    .map-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25);
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      padding: 30px 0;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+    }
+
+    .dark-mode .navbar {
+      background-color: #020617 !important;
+    }
+
+    .dark-mode section {
+      background-color: var(--dark-bg-soft);
+    }
+
+    .dark-mode #services,
+    .dark-mode #testimonials {
+      background-color: #020617;
+    }
+
+    .dark-mode .service-card,
+    .dark-mode .testimonial-card,
+    .dark-mode .counter-box,
+    .dark-mode .faq-item {
+      background-color: #020617;
+      color: var(--text-light);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .dark-mode .pricing-card {
+      background: linear-gradient(135deg, #020617, #0f172a);
+    }
+
+    .dark-mode footer {
+      background-color: #000000;
+    }
+
+    .dark-toggle-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      background: transparent;
+    }
+
+    .dark-toggle-btn i {
+      margin-right: 4px;
+    }
+
+    /* Back to top */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      display: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: #ffffff;
+      border: none;
+      padding: 10px 14px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.6);
+    }
+
+    #backToTop i {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 767.98px) {
+      .hero {
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p.lead {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">Sejjtech Services</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <button id="darkModeToggle" class="dark-toggle-btn">
+              <i class="fas fa-moon"></i> Dark Mode
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="badge bg-primary bg-opacity-75 mb-3 rounded-pill">
+            Sejjtech Services
+          </span>
+          <h1 class="mb-3">Smart IT Solutions, Simplified.</h1>
+          <p class="lead mb-4">
+            Reliable, modern and affordable IT services for individuals, small businesses and growing organizations.
+            From fixing your devices to building full websites and securing your network, Sejjtech makes technology work for you.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="badge bg-secondary bg-opacity-75 rounded-pill">Computer Repair</span>
+            <span class="badge bg-secondary bg-opacity-75 rounded-pill">Networking</span>
+            <span class="badge bg-secondary bg-opacity-75 rounded-pill">Web Development</span>
+            <span class="badge bg-secondary bg-opacity-75 rounded-pill">Cybersecurity</span>
+          </div>
+          <a href="#contact" class="btn btn-primary btn-lg me-2 mb-2">Hire Me Now</a>
+          <a href="#services" class="btn btn-outline-light btn-lg mb-2">View Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <p class="section-title">Who I Am</p>
+          <h2 class="section-heading mb-3">Your trusted IT partner.</h2>
+          <p class="about-text">
+            Sejjtech Services is built on a simple belief: technology should make your life easier, not more complicated.
+            I focus on practical, real-world IT solutions that solve problems quickly and professionally.
+            Whether you need your systems fixed, your network stabilized, or your online presence upgraded,
+            I approach every task with care, clarity and a commitment to quality.
+          </p>
+          <p class="about-text">
+            Clients choose Sejjtech because I listen first, then design solutions that match your needs and your budget.
+            You get clear communication, honest advice, and work that is delivered on time.
+            My goal is not just to fix issues, but to build long-term relationships where you feel confident about your technology.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="counter-box">
+                <div id="projectsCounter" class="counter">0</div>
+                <p class="mb-0">Projects Completed</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="counter-box">
+                <div id="clientsCounter" class="counter">0</div>
+                <p class="mb-0">Happy Clients</p>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="counter-box mt-3">
+                <div id="yearsCounter" class="counter">0</div>
+                <p class="mb-0">Years in IT</p>
+              </div>
+            </div>
+            <div class="col-12 mt-3">
+              <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" class="img-fluid" alt="IT workspace" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" style="background-color: var(--light-bg);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-title">What I Do</p>
+        <h2 class="section-heading">Professional IT Services</h2>
+        <p class="text-muted">
+          A full range of services to keep your devices, network and online presence running smoothly.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fas fa-desktop"></i>
+            <h5 class="mt-3 mb-2">Computer Repair & Maintenance</h5>
+            <p class="mb-0">
+              Diagnosis, cleaning, upgrades and performance tuning for desktops and laptops.
+              Keep your machines fast, secure and reliable.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fas fa-network-wired"></i>
+            <h5 class="mt-3 mb-2">Networking Setup & Troubleshooting</h5>
+            <p class="mb-0">
+              Wired and wireless network setup, configuration and fault fixing for homes, offices and small businesses.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fas fa-code"></i>
+            <h5 class="mt-3 mb-2">Web Design & Development</h5>
+            <p class="mb-0">
+              Modern, responsive websites built with clean code and user-friendly layouts to represent your brand online.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fas fa-cogs"></i>
+            <h5 class="mt-3 mb-2">Software Installation & Support</h5>
+            <p class="mb-0">
+              Installation, configuration and troubleshooting of operating systems and essential software for smooth daily use.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fas fa-shield-alt"></i>
+            <h5 class="mt-3 mb-2">Cybersecurity & Data Protection</h5>
+            <p class="mb-0">
+              Basic security hardening, antivirus setup, backup strategies and best practices to protect your data and devices.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card h-100">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h5 class="mt-3 mb-2">IT Consulting & Training</h5>
+            <p class="mb-0">
+              Guidance on choosing the right technology, plus one-on-one or group training for staff and individuals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools & Technologies -->
+  <section id="tools">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-title">Tools & Stack</p>
+        <h2 class="section-heading">Technologies I Work With</h2>
+        <p class="text-muted">
+          Using modern, reliable tools to deliver stable and secure solutions.
+        </p>
+      </div>
+      <div class="text-center">
+        <span class="tool-badge">HTML5</span>
+        <span class="tool-badge">CSS3</span>
+        <span class="tool-badge">Bootstrap</span>
+        <span class="tool-badge">JavaScript</span>
+        <span class="tool-badge">Git & GitHub</span>
+        <span class="tool-badge">Windows & Linux</span>
+        <span class="tool-badge">Networking (LAN/Wi-Fi)</span>
+        <span class="tool-badge">Basic Cybersecurity</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-title">Work Samples</p>
+        <h2 class="section-heading">Selected Projects</h2>
+        <p class="text-muted">
+          A glimpse of the kind of work Sejjtech can deliver—from websites to network setups and system upgrades.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#project1Modal">
+            <img src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80" alt="Business Website" />
+            <div class="portfolio-overlay">
+              <div>
+                <h5>Business Website</h5>
+                <p>Responsive site for a local business with services, contact and gallery.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#project2Modal">
+            <img src="https://images.pexels.com/photos/1054397/pexels-photo-1054397.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Network Setup" />
+            <div class="portfolio-overlay">
+              <div>
+                <h5>Office Network Setup</h5>
+                <p>Small office network with secure Wi-Fi and shared resources.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#project3Modal">
+            <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="System Upgrade" />
+            <div class="portfolio-overlay">
+              <div>
+                <h5>System Upgrade & Cleanup</h5>
+                <p>Performance optimization and security hardening for multiple PCs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Modals -->
+  <div class="modal fade" id="project1Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Business Website Project</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            A clean, responsive website built for a local business to showcase services, location and contact details.
+            Designed with mobile users in mind and optimized for fast loading.
+          </p>
+          <img src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80" class="img-fluid rounded" alt="Business Website" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="project2Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Office Network Setup</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Designed and configured a small office network with secure Wi-Fi, shared printers and basic firewall rules.
+            Focused on stability, coverage and ease of use for non-technical staff.
+          </p>
+          <img src="https://images.pexels.com/photos/1054397/pexels-photo-1054397.jpeg?auto=compress&cs=tinysrgb&w=1200" class="img-fluid rounded" alt="Network Setup" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="project3Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">System Upgrade & Cleanup</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Upgraded hardware and software, removed malware, and optimized performance for multiple computers.
+            Result: faster boot times, smoother operation and improved security.
+          </p>
+          <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1200" class="img-fluid rounded" alt="System Upgrade" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <section id="pricing" style="background-color: var(--dark-bg-soft); color: var(--text-light);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-title">Pricing</p>
+        <h2 class="section-heading">Simple, Transparent Packages</h2>
+        <p class="text-muted">
+          Clear options so you know what to expect. Final prices depend on your exact needs.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="pricing-card h-100">
+            <h4>Basic Support</h4>
+            <p class="mt-2 mb-3">Ideal for individuals and home users.</p>
+            <ul class="mb-3">
+              <li>Computer checkup & cleanup</li>
+              <li>Basic software installation</li>
+              <li>Simple Wi-Fi setup</li>
+            </ul>
+            <p class="fw-semibold mb-0">Starting from: <span style="color: var(--accent-neon);">Affordable</span></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pricing-card h-100">
+            <h4>Small Business</h4>
+            <p class="mt-2 mb-3">For shops, offices and small teams.</p>
+            <ul class="mb-3">
+              <li>Office network setup</li>
+              <li>Business website</li>
+              <li>Basic security & backups</li>
+            </ul>
+            <p class="fw-semibold mb-0">Starting from: <span style="color: var(--accent-neon);">Custom quote</span></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pricing-card h-100">
+            <h4>Advanced IT</h4>
+            <p class="mt-2 mb-3">For growing organizations.</p>
+            <ul class="mb-3">
+              <li>Multiple systems & devices</li>
+              <li>Advanced website features</li>
+              <li>Ongoing IT support</li>
+            </ul>
+            <p class="fw-semibold mb-0">Starting from: <span style="color: var(--accent-neon);">Custom quote</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" style="background-color: var(--light-bg);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-title">Client Feedback</p>
+        <h2 class="section-heading">What Clients Say</h2>
+        <p class="text-muted">
+          Realistic feedback from schools, businesses and organizations that trusted Sejjtech with their technology.
+        </p>
+      </div>
+
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-blue">SJ</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Ssemanda Juma — ICT Officer, BrightTech Hardware, Kampala</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Our shop computers were slow and constantly freezing. Sejjtech cleaned them up, upgraded what was needed
+                    and set up proper antivirus. We now serve customers faster and with fewer interruptions.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-green">NS</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Nansubuga Sarah — St. Mary’s Junior School, Wakiso</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Sejjtech restored our school network in one afternoon. The computer lab is now stable and the teachers
+                    can use e-learning tools without fear of disconnections.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-purple">KM</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Kaggwa Musa — Mukono, Uganda</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Whenever my personal laptop misbehaves, I call Sejjtech. He responds quickly, explains the problem clearly
+                    and makes sure my files are safe before doing anything.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-orange">GN</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Grace Namubiru — Administrator, Kawuku Community Church</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Our church office needed a simple but reliable computer setup for records and media. Sejjtech installed
+                    everything, trained our team and made sure we had backups. It has made our work much easier.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-pink">BK</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Bukenya Kenneth — Director, Kampala Digital Hub</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “We needed a modern website to showcase our digital services. Sejjtech delivered a clean, responsive site
+                    that works perfectly on both phones and computers. Our clients now find information easily and contact us directly.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-blue">MT</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Mutesi Tracy — Teacher, Lugazi Progressive High School</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Our staff struggled with slow computers in the staff room. After Sejjtech serviced them and removed malware,
+                    we noticed a big difference. Marking and entering results is now much faster.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-green">LW</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Lwanga William — Manager, Wakiso Hardware Centre</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “We had frequent network drops at our shop, which affected our sales system. Sejjtech redesigned the network,
+                    replaced weak equipment and secured our Wi-Fi. The connection has been stable ever since.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-purple">NN</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Nabirye Norah — Mukono, Uganda</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “I was worried about losing my photos and documents. Sejjtech helped me set up backups and showed me how
+                    to keep my accounts secure. I now feel much safer using my laptop.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-orange">RK</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Rev. Kasozi Robert — Pastor, Light of Hope Ministries</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Our ministry needed a simple website and email setup to reach people online. Sejjtech created a clear,
+                    easy-to-use site and helped us organize our media. It has improved how we communicate with our members.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-pink">AK</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Atwine Kevin — Operations Lead, Hope for Communities Uganda</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Our NGO struggled with slow computers and poor security. Sejjtech upgraded our systems, installed proper
+                    backups and trained our team on safe digital practices. We now operate faster and with more confidence.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-blue">TM</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Tumusiime Michael — Small Business Owner, Entebbe Road</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “I needed a simple website for my small business but didn’t know where to start. Sejjtech guided me through
+                    everything, from domain choice to content. The result looks professional and has brought in new customers.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-green">JN</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Jjemba Nicholas — IT Volunteer, Kawuku Youth Centre</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “We had donated computers that needed setup and maintenance. Sejjtech prepared them, installed useful software
+                    and showed us how to keep them running well. The youth now have a functional mini-lab.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-purple">MP</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Muwonge Peter — Finance Officer, Cityline Transport Ltd</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Our office needed secure sharing of files between departments. Sejjtech set up a small internal network,
+                    configured shared folders and ensured only the right people had access. It has improved our workflow a lot.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-orange">RS</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Ruth Sanyu — Parent, Kawuku</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “My children use our home computer for schoolwork. Sejjtech helped us install parental controls and explained
+                    how to keep them safe online. I appreciate the patience and clear guidance.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-pink">DK</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Dr. Kiggundu David — Medical Practitioner, Private Clinic, Kampala</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “We needed our clinic records computer to be secure and backed up. Sejjtech configured encryption, backups
+                    and basic security measures. I now feel more confident about patient data safety.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-blue">HS</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Hajjat Ssekandi Mariam — Owner, Mariam’s Boutique, Kampala Road</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Sejjtech helped me set up a simple point-of-sale system and trained my staff on how to use it.
+                    Our sales tracking is now more accurate and we waste less time on manual calculations.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-green">FN</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Fiona Nakitende — University Student, Makerere</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “My laptop crashed just before exams. Sejjtech recovered my important documents and advised me on how to
+                    avoid similar issues in future. I’m very grateful for the quick support.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-purple">OS</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Okello Samuel — Coordinator, Northern Hope Initiative</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Our organization works in remote areas and needed laptops configured for field work. Sejjtech prepared them,
+                    installed offline tools and ensured they were secure. The team now works more efficiently on the ground.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-orange">CP</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Christine Pendo — Owner, Pendo Snacks & Catering</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “I wanted a simple online presence where customers could see my menu and contact me. Sejjtech built a neat,
+                    mobile-friendly site that has helped me get more orders, especially from WhatsApp referrals.”
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="testimonial-card h-100 mt-4 mt-md-0">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-circle avatar-pink">YM</div>
+                    <div>
+                      <div class="mb-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      <p class="mb-0 fw-semibold">Yiga Mark — Freelance Photographer, Kampala</p>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    “Sejjtech helped me organize my photo backups and set up a small portfolio site. Now I can easily share my work
+                    with clients and I’m less worried about losing my pictures.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-title">FAQ</p>
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+        <p class="text-muted">
+          Quick answers to common questions about Sejjtech Services.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="faq-item">
+            <h6>How do I request a service?</h6>
+            <p class="mb-0">
+              You can use the contact form below or reach me directly via email or phone.
+              Share what you need and I’ll respond with options and a rough estimate.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h6>Do you work on-site or remotely?</h6>
+            <p class="mb-0">
+              For Kawuku and nearby areas, I can work on-site. For websites and some IT tasks,
+              remote work is also possible using online tools.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h6>Can you maintain my systems regularly?</h6>
+            <p class="mb-0">
+              Yes. We can agree on a maintenance schedule for updates, backups and checkups
+              to keep your systems healthy and secure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-title">Get In Touch</p>
+        <h2 class="section-heading">Let’s Talk About Your IT Needs</h2>
+        <p class="text-muted">
+          Share your challenge or idea and I’ll respond with practical options and clear next steps.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <form id="contactForm" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" required />
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Your Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" required />
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Describe what you need help with" required></textarea>
+              <div class="invalid-feedback">Please enter a message.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p id="formStatus" class="mt-3 mb-0" style="font-size: 0.9rem;"></p>
+          </form>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-info">
+            <h5 class="mb-3">Direct Contacts</h5>
+            <p><i class="fas fa-envelope"></i> sejjtechnologies@gmail.com</p>
+            <p><i class="fas fa-envelope"></i> atukwasewilber78@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0755491894</p>
+            <p><i class="fas fa-phone"></i> 0744137174</p>
+            <hr />
+            <h5 class="mb-3">Availability</h5>
+            <p><i class="fas fa-clock"></i> Monday – Saturday, 8:00 AM – 6:00 PM</p>
+            <p><i class="fas fa-location-dot"></i> Kawuku, Central Region, Uganda</p>
+            <hr />
+            <h5 class="mb-3">Location Preview</h5>
+            <div class="map-image">
+              <img src="https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg?auto=compress&cs=tinysrgb&w=1200" class="img-fluid" alt="Map preview" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row gy-3 align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">
+            &copy; <span id="year"></span> Sejjtech Services. All rights reserved.
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#hero" class="me-3">Back to top</a>
+          <a href="#services" class="me-3">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="backToTop" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Dark mode toggle
+    const darkToggle = document.getElementById("darkModeToggle");
+    darkToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+      } else {
+        darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+      }
+    });
+
+    // Simple counters
+    function animateCounter(id, target) {
+      const el = document.getElementById(id);
+      let count = 0;
+      const step = Math.ceil(target / 100);
+      const interval = setInterval(() => {
+        count += step;
+        if (count >= target) {
+          count = target;
+          clearInterval(interval);
+        }
+        el.textContent = count;
+      }, 20);
+    }
+
+    let countersStarted = false;
+    function handleScroll() {
+      const aboutSection = document.getElementById("about");
+      const rect = aboutSection.getBoundingClientRect();
+      if (!countersStarted && rect.top < window.innerHeight - 100) {
+        countersStarted = true;
+        animateCounter("projectsCounter", 120);
+        animateCounter("clientsCounter", 80);
+        animateCounter("yearsCounter", 3);
+      }
+
+      // Back to top visibility
+      const backToTop = document.getElementById("backToTop");
+      if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+
+    // Back to top click
+    document.getElementById("backToTop").addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Contact form validation (front-end only)
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      let valid = true;
+
+      ["name", "email", "message"].forEach((id) => {
+        const input = document.getElementById(id);
+        if (!input.value.trim()) {
+          input.classList.add("is-invalid");
+          valid = false;
+        } else {
+          input.classList.remove("is-invalid");
+        }
+      });
+
+      const emailInput = document.getElementById("email");
+      const emailValue = emailInput.value.trim();
+      if (emailValue && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+        emailInput.classList.add("is-invalid");
+        valid = false;
+      }
+
+      if (!valid) {
+        formStatus.textContent = "Please fill in all fields correctly.";
+        formStatus.style.color = "red";
+        return;
+      }
+
+      formStatus.textContent =
+        "Thank you! Your message has been captured (demo only). You can also contact me directly via email or phone.";
+      formStatus.style.color = "green";
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
